@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int n, time = 0, complete = 0;
+    int n, ctime = 0, complete = 0;
     int bt[10], rt[10], at[10], pr[10];
     int wt[10], tat[10];
     int highest, min_pr;
@@ -24,23 +24,23 @@ int main() {
         highest = -1;
 
         for(int i = 0; i < n; i++) {
-            if(at[i] <= time && rt[i] > 0 && pr[i] < min_pr) {
+            if(at[i] <= ctime && rt[i] > 0 && pr[i] < min_pr) {
                 min_pr = pr[i];
                 highest = i;
             }
         }
 
         if(highest == -1) {
-            time++;
+            ctime++;
             continue;
         }
 
         rt[highest]--;
-        time++;
+        ctime++;
 
         if(rt[highest] == 0) {
             complete++;
-            wt[highest] = time - bt[highest] - at[highest];
+            wt[highest] = ctime - bt[highest] - at[highest];
             if(wt[highest] < 0)
                 wt[highest] = 0;
         }
