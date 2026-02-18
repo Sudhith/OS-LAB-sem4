@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-    int n, i, time = 0, tq;
+    int n, i, ctime = 0, tq;
     int bt[10], rt[10], wt[10] = {0}, tat[10];
 
     printf("Enter number of processes: ");
@@ -22,11 +22,11 @@ int main() {
             if(rt[i] > 0) {
                 done = 0;
                 if(rt[i] > tq) {
-                    time += tq;
+                    ctime += tq;
                     rt[i] -= tq;
                 } else {
-                    time += rt[i];
-                    wt[i] = time - bt[i]; //WT = CT - BT
+                    ctime += rt[i];
+                    wt[i] = ctime - bt[i]; //WT = CT - BT
                     rt[i] = 0;
                 }
             }
